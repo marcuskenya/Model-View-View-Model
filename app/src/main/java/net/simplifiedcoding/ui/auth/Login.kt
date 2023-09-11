@@ -25,11 +25,16 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import net.simplifiedcoding.R
 import net.simplifiedcoding.data.Resource
+import net.simplifiedcoding.navigation.ROUTE_ABOUT
+import net.simplifiedcoding.navigation.ROUTE_ADD
 import net.simplifiedcoding.navigation.ROUTE_HOME
 import net.simplifiedcoding.navigation.ROUTE_LOGIN
+import net.simplifiedcoding.navigation.ROUTE_PROJECTS
+import net.simplifiedcoding.navigation.ROUTE_SERVICES
 import net.simplifiedcoding.navigation.ROUTE_SIGNUP
 import net.simplifiedcoding.ui.theme.AppTheme
 import net.simplifiedcoding.ui.theme.spacing
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +47,6 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
     ConstraintLayout(
         modifier = Modifier.fillMaxSize()
     ) {
-
         val (refHeader, refEmail, refPassword, refButtonLogin, refTextSignup, refLoader) = createRefs()
         val spacing = MaterialTheme.spacing
 
@@ -116,7 +120,8 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
                 width = Dimension.fillToConstraints
             }
         ) {
-            Text(text = stringResource(id = R.string.login), style = MaterialTheme.typography.titleMedium)
+            Text(text = stringResource(id = R.string.login),
+                style = MaterialTheme.typography.titleMedium)
         }
 
 
@@ -128,15 +133,22 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
                     end.linkTo(parent.end, spacing.extraLarge)
                 }
                 .clickable {
-                    navController.navigate(ROUTE_SIGNUP) {
+                    navController.navigate(ROUTE_ADD) {
                         popUpTo(ROUTE_LOGIN) { inclusive = true }
                     }
                 },
-            text = stringResource(id = R.string.dont_have_account),
+            text = "ADD DATA",
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurface
         )
+
+
+
+
+
+
+
 
         loginFlow?.value?.let {
             when (it) {

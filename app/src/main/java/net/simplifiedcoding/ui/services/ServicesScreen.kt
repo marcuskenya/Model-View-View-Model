@@ -7,18 +7,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.PointerIconDefaults.Text
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import net.simplifiedcoding.ui.auth.AuthViewModel
 
+
 @Composable
-fun Services(viewModel: AuthViewModel?, navController: NavHostController) {
+fun ServicesScreen(viewModel: AuthViewModel?, navController: NavHostController) {
 Column (
     modifier = Modifier
         .background(Color.Black)
         .fillMaxSize()
 ){
-    Text(text = "This is the Services Page.")
+    Text(text = "This is the Services Page.",color= Color.White)
 }
 
 }

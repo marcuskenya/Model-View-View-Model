@@ -18,8 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme {
+        }
+
                 AppNavHost(viewModel)
             }
-        }
     }
 }
